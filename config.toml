@@ -1,0 +1,14 @@
+# Hostname (and path) to the root.
+baseURL = "https://cosheafclub.github.io/" 
+
+# The site’s language code used to generate RSS.
+languageCode = "en"
+
+# Theme to use (located by default in /themes/THEMENAME/).
+theme = "hyde-hyde"
+
+# Site title.
+title = "(Co)sheaf club"
+
+#Site description.
+description = "A reading club blog about (co)sheaf theory"
