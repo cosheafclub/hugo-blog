@@ -1,0 +1,20 @@
+---
+title: "Help"
+date: 2018-09-16T14:51:10+02:00
+draft: false 
+---
+Setup local environment:
+1) [Install Git](https://www.atlassian.com/git/tutorials/install-git)
+2) [Install Hugo](https://gohugo.io/getting-started/installing/)
+3) Execute the command: `git clone https://github.com/cosheafclub/hugo-blog.git`
+
+Create a post:
+1) Go to the directory hugo-blog
+2) Execute the command: `hugo new posts/<post-name>.mmark`
+3) Edit the file `content/posts/<post-name>.mmark` with your favorite text editor.
+4) Before uploading the content, try it in your computer by running the command `hugo server -D`. Open a web browser and go to [http://localhost:1313/](http://localhost:1313/)
+5) Once you are happy run execute the command `hugo`, commit and push the repository.
+
+Writting LaTex:
+To write in LaTex you need to put in `<div>$$ <LaTex-Code> $$</div>`.
+
