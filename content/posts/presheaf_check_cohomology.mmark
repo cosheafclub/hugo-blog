@@ -1,0 +1,74 @@
+---
+title: "Cech Cohomology of Pre-Sheaves"
+date: 2018-10-05T11:26:13+02:00
+draft: false
+author: Alvaro Torras
+---
+
+Let $$X$$ be a topological space and let  $$F$$ be a pre-sheaf of vector 
+spaces on $$X$$.  Given an open cover $$\mathcal{U} = \{ U_i \}_{I \in \Lambda}$$ 
+of $$X$$, we define the Cech Cohomology of $$F$$ as the cohomology 
+of the cochain complex
+
+$$
+(C^\bullet (\mathcal{U},F), \delta^\bullet) \hspace{0.5cm}
+{\rm where} \hspace{0.5cm}
+C^p (\mathcal{U},F)  = \prod\limits_{|I| = p + 1} F(U_I) \hspace{0.5cm}
+{\rm for}\hspace{0.5cm}
+I \in N(\mathcal{U}).
+$$
+
+where $$U_I = \cap_{i \in I} U_i$$. In order to define the differential $$\delta$$, 
+we need to choose an ordering of the indexing set $$\Lambda$$. Thus, given a 
+cochain $$s \in C^p (\mathcal{U},F)$$, its image is defined on each coordinate as
+
+$$
+(\delta^p (s))_I =  \sum_{k = 0}^{p+1} (-1)^k \rho_{U_I, U_{I(k)}}(s_{I(k)}) 
+$$
+
+where $$I = \{i_0,\ldots, i_{p+1}\}\subset \Lambda$$, $$i_0 < i_2 < \ldots < i_{p+1}$$ 
+the ordering inherited from $$\Lambda$$ and $$I(k)$$ denotes $$I \setminus \{i_k\}$$.
+Therefore the $$p^{\rm th}$$ Cech Cohomology group of $$F$$ is defined by the quotient
+
+$$
+{\check H}^p(\mathcal{U}, F) = \frac{{\rm ker}(\delta^p)}{{\rm im}(\delta^{p-1})} \hspace{0.5cm}
+{\rm i.e.} \hspace{0.5cm}
+H^p(C^\bullet (\mathcal{U},F)).
+$$
+
+In order to ensure that the above definition is correct, we need to prove the following lemma.
+
+
+The differential $$\delta$$ in the cochain complex $$C^\bullet (\mathcal{U},F)$$ 
+for a cover $$\mathcal{U}$$ and a pre-sheaf $$F$$, satisfies the identity 
+$$\delta^{p+1} \circ \delta^p = 0$$ for all $$p \in \mathbb{Z}$$. 
+
+
+Let $$s \in C^p (\mathcal{U},F)$$, we focus on each coordinate 
+$$I \subset \Lambda$$ with $$|I| = p + 3$$
+
+$$
+\begin{align*}
+(\delta^{p+1} \circ \delta^p (s))_I  &= \sum_{k = 0}^{p+2} (-1)^k \rho_{U_I, U_{I(k)}}(\delta^p(s)_{I(k)}) \\
+ &=\sum_{k = 0}^{p+2}(-1)^k \left( \sum_{j = 0}^{k-1}  (-1)^j \rho_{U_I, U_{I(k)}}  \rho_{U_{I(k)}, U_{I(j,k)}}(s_{I(j,k)}) + \sum_{j=k+1}^{p+2} (-1)^{j-1} \rho_{U_I, U_{I(k)}}  \rho_{U_{I(k)}, U_{I(k,j)}}(s_{I(k, j)}) \right) \\
+ &=\sum_{k = 0}^{p+2}\sum_{j = 0}^{k-1} (-1)^{k + j}  \rho_{U_I, U_{I(k)}}  \rho_{U_{I(k)}, U_{I(j,k)}}(s_{I(j,k)}) + \sum_{k = 0}^{p+2} \sum_{j=k+1}^{p+2}(-1)^{j + (k -1)} \rho_{U_I, U_{I(j)}}  \rho_{U_{I(j)}, U_{I(j,k)}}(s_{I(j,k)}) \\
+ &=\sum \limits_{k = 0}^{p+2} \sum \limits_{j = 0}^{k-1} \left( (-1)^{k + j}  \rho_{U_I, U_{I(k)}}  \rho_{U_{I(k)}, U_{I(j,k)}}(s_{I(j,k)}) + (-1)^{j + (k -1)} \rho_{U_I, U_{I(j)}}  \rho_{U_{I(j)}, U_{I(j,k)}}(s_{I(j,k)}) \right) = 0
+\end{align*}
+$$
+where the last equality follow from the correspondence between the pairs 
+$$(k,j)$$ in the first sum with the pairs $$(k',j')=(j,k)$$ from the second sum,
+ and the commutativity of the following two diagrams:
+
+<div>$$
+\xymatrix{
+\ & U_I^{(j,k)} & \\
+U_I^{(j)} \ar[ur] & \  & U_I^{(k)} \ar[ul]\\
+\ & U_I \ar[ur] \ar[ul] \ar[uu]
+}
+\hspace{1cm}
+\xymatrix{
+\ & F(U_I^{(j,k)}) \ar[ld]_{ \rho_{U_I^{(j)}, U_I^{(j,k)}}} \ar[rd]^{ \rho_{U_I^{(k)}, U_I^{(j,k)}}} \ar[dd] & \\
+F(U_I^{(j)}) \ar[dr]_{ \rho_{U_I, U_I^{(j)}}} & \  & F(U_I^{(k)}) \ar[dl]^{ \rho_{U_I, U_I^{(k)}}}\\
+\ & F(U_I) 
+}
+$$</div>
